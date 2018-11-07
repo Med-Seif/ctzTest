@@ -11,7 +11,7 @@ namespace Entity;
  *
  * @author Seif
  */
-abstract class Entreprise
+abstract class AbstractEntreprise implements RateInterface
 {
     /**
      * @var string
@@ -21,6 +21,8 @@ abstract class Entreprise
      * @var string
      */
     protected $denomination;
+
+    protected $type;
 
     /**
      * @return string
@@ -38,4 +40,18 @@ abstract class Entreprise
         $this->siretNum = $siretNum;
     }
 
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+    public function getRate()
+    {
+        return $this::RATE;
+    }
 }

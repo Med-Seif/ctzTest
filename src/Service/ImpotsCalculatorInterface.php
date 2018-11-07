@@ -7,10 +7,16 @@
 namespace Service;
 
 
+use Entity\RateInterface;
+
 interface ImpotsCalculatorInterface
 {
     public function calculate();
 
     public function getCa();
+
+    public function setCa($ca);
+
+    public function setEntreprise(RateInterface $entreprise);
 
 }

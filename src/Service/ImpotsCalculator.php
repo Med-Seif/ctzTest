@@ -6,6 +6,8 @@
 
 namespace Service;
 
+use Entity\RateInterface;
+
 /**
  * Class ImpotsCalculator
  *
@@ -22,10 +24,13 @@ class ImpotsCalculator implements ImpotsCalculatorInterface
      * @var integer
      */
     protected $type;
+    protected $entreprise;
 
     public function calculate()
     {
-        // TODO: Implement calculate() method.
+        $rate = $this->getEntreprise()->getRate();
+
+        return $this->getCa() * $rate * 0.01;
     }
 
     /**
@@ -44,20 +49,14 @@ class ImpotsCalculator implements ImpotsCalculatorInterface
         $this->ca = $ca;
     }
 
-    /**
-     * @return int
-     */
-    public function get()
+    public function getEntreprise()
     {
-        return $this->type;
+        return $this->entreprise;
     }
 
-    /**
-     * @param int $type
-     */
-    public function setType($type)
+    public function setEntreprise(RateInterface $entreprise)
     {
-        $this->type = $type;
+        $this->entreprise = $entreprise;
     }
 
 }

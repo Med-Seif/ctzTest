@@ -11,11 +11,12 @@ namespace Entity;
  *
  * @author Seif
  */
-class Sas extends Entreprise
+class Sas extends AbstractEntreprise
 {
     /**
      * @var string
      */
+    const RATE = 33;
     protected $adresse;
 
     /**

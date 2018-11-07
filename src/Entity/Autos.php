@@ -10,7 +10,8 @@ namespace Entity;
  *
  * @author Seif
  */
-class Autos extends Entreprise
+class Autos extends AbstractEntreprise
 {
+    const RATE = 25;
 
 }
