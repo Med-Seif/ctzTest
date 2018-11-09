@@ -19,4 +19,6 @@ interface ImpotsCalculatorInterface
 
     public function setEntreprise(RateInterface $entreprise);
 
+    public function getEntreprise();
+
 }

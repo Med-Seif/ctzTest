@@ -7,6 +7,7 @@
 namespace Service;
 
 use Entity\RateInterface;
+use Exception\EntrepriseUndefined;
 
 /**
  * Class ImpotsCalculator
@@ -19,7 +20,7 @@ class ImpotsCalculator implements ImpotsCalculatorInterface
     /**
      * @var float;
      */
-    protected $ca;
+    protected $ca = 0;
     /**
      * @var integer
      */
@@ -28,6 +29,9 @@ class ImpotsCalculator implements ImpotsCalculatorInterface
 
     public function calculate()
     {
+        if (!$this->hasEntreprise()) {
+            throw new EntrepriseUndefined(AppMessages::EXC_ENTREPRISE_OBJECT_UNDEFINED);
+        }
         $rate = $this->getEntreprise()->getRate();
 
         return $this->getCa() * $rate * 0.01;
@@ -57,6 +61,11 @@ class ImpotsCalculator implements ImpotsCalculatorInterface
     public function setEntreprise(RateInterface $entreprise)
     {
         $this->entreprise = $entreprise;
+    }
+
+    public function hasEntreprise()
+    {
+        return !is_null($this->getEntreprise();
     }
 
 }

@@ -6,6 +6,8 @@
 
 namespace Factory;
 
+use Service\AppMessages;
+
 class EntrepriseFactory
 {
     const ENTREPRISE_TYPE_AUTOS = 'autos';
@@ -25,6 +27,6 @@ class EntrepriseFactory
                 return new \Entity\Sas();
         }
 
-        throw new \Exception\EntrepriseTypeNotFound("Le type de l'entreprise fourni est inconnu");
+        throw new \Exception\EntrepriseTypeNotFound(AppMessages::EXC_ENTREPRISE_TYPE_UNDEFINED);
     }
 }
