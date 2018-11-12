@@ -1,41 +1,31 @@
 <?php
+
 /**
- * User Seif <ben.s@mipih.fr>
- * Date time: 08/11/2018 09:16
+ * Class ImpotsCalculatorTest
+ *
+ * @author Seif
  */
-
-use Service\ImpotsCalculator;
-
-class ImpotsCalculatorTest extends PHPUnit_Framework_TestCase
+class ImpotsCalculatorTest extends PHPUnit\Framework\TestCase
 {
+    protected $impotsCalculator;
+
+    public function setUp()
+    {
+        $ca = 100000.0;
+        $type = \Factory\EntrepriseFactory::ENTREPRISE_TYPE_SAS;
+        $entreprise = \Factory\EntrepriseFactory::create($type);
+        $serviceImpCalc = new \Service\ImpotsCalculator();
+        $serviceImpCalc->setCa($ca);
+        $serviceImpCalc->setEntreprise($entreprise);
+        $this->impotsCalculator = $serviceImpCalc;
+    }
 
     public function testCalculate()
     {
-
+        $impot = $this->impotsCalculator->calculate();
+        $this->assertNotNull($impot);
+        $this->assertInternalType('float', $impot);
+        $this->assertGreaterThanOrEqual(0, $impot);
     }
 
-    public function testHasEntreprise()
-    {
-
-    }
-
-    public function testGetEntreprise()
-    {
-
-    }
-
-    public function testGetCa()
-    {
-
-    }
-
-    public function testSetCa()
-    {
-
-    }
-
-    public function testSetEntreprise()
-    {
-
-    }
 }

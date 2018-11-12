@@ -1,0 +1,8 @@
+<phpunit bootstrap="__DIR__./../../autoload.php">
+    <testsuites>
+        <testsuite name="ImpotsCalculator">
+            <directory>Service/</directory>
+            <file>ImpotsCalculatorTest.php</file>
+        </testsuite>
+    </testsuites>
+</phpunit>

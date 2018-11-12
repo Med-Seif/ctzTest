@@ -1,8 +1,4 @@
 <?php
-/**
- * User Seif <ben.s@mipih.fr>
- * Date time: 06/11/2018 18:42
- */
 
 namespace Entity;
 
@@ -14,9 +10,14 @@ namespace Entity;
 class Sas extends AbstractEntreprise
 {
     /**
-     * @var string
+     * Pourcentage impôts
+     *
+     * @var float
      */
     const RATE = 33;
+    /**
+     * @var
+     */
     protected $adresse;
 
     /**

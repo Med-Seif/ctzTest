@@ -1,13 +1,18 @@
 <?php
-/**
- * User Seif <ben.s@mipih.fr>
- * Date time: 07/11/2018 19:38
- */
 
 namespace Entity;
 
 
+/**
+ * Interface RateInterface
+ *
+ * @package Entity
+ * @author  Seif
+ */
 interface RateInterface
 {
+    /**
+     * @return flaot
+     */
     public function getRate();
 }

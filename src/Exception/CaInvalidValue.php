@@ -3,12 +3,12 @@
 namespace Exception;
 
 /**
- * Class EntrepriseUndefined
+ * Class CaInvalidValue
  *
  * @package Exception
  * @author  Seif
  */
-class EntrepriseUndefined extends \Exception
+class CaInvalidValue extends \Exception
 {
 
 }

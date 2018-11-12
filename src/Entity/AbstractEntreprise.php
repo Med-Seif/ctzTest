@@ -1,8 +1,4 @@
 <?php
-/**
- * User Seif <ben.s@mipih.fr>
- * Date time: 06/11/2018 18:42
- */
 
 namespace Entity;
 
@@ -22,6 +18,9 @@ abstract class AbstractEntreprise implements RateInterface
      */
     protected $denomination;
 
+    /**
+     * @var string
+     */
     protected $type;
 
     /**
@@ -40,16 +39,25 @@ abstract class AbstractEntreprise implements RateInterface
         $this->siretNum = $siretNum;
     }
 
+    /**
+     * @return string
+     */
     public function getType()
     {
         return $this->type;
     }
 
+    /**
+     * @param string $type
+     */
     public function setType($type)
     {
         $this->type = $type;
     }
 
+    /**
+     * @return float
+     */
     public function getRate()
     {
         return $this::RATE;

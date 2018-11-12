@@ -1,19 +1,16 @@
 <?php
-/**
- * User Seif <ben.s@mipih.fr>
- * Date time: 06/11/2018 19:02
- */
 
 namespace Service;
 
 use Entity\RateInterface;
+use Exception\CaInvalidValue;
 use Exception\EntrepriseUndefined;
 
 /**
  * Class ImpotsCalculator
  *
  * @package Service
- * @author  Seif <ben.s@mipih.fr>
+ * @author  Seif
  */
 class ImpotsCalculator implements ImpotsCalculatorInterface
 {
@@ -25,8 +22,17 @@ class ImpotsCalculator implements ImpotsCalculatorInterface
      * @var integer
      */
     protected $type;
+    /**
+     * @var RateInterface
+     */
     protected $entreprise;
 
+    /**
+     * Calcul de l'impôt de l'entreperise courante
+     *
+     * @return float
+     * @throws EntrepriseUndefined
+     */
     public function calculate()
     {
         if (!$this->hasEntreprise()) {
@@ -47,25 +53,46 @@ class ImpotsCalculator implements ImpotsCalculatorInterface
 
     /**
      * @param float $ca
+     *
+     * @return $this|mixed
+     * @throws CaInvalidValue
      */
     public function setCa($ca)
     {
+        if (!is_float($ca) || $ca < 0) {
+            throw new CaInvalidValue(AppMessages::EXC_CA_INVALID_VALUE);
+        }
         $this->ca = $ca;
+
+        return $this;
     }
 
+    /**
+     * @return RateInterface
+     */
     public function getEntreprise()
     {
         return $this->entreprise;
     }
 
+    /**
+     * @param RateInterface $entreprise
+     *
+     * @return $this|mixed
+     */
     public function setEntreprise(RateInterface $entreprise)
     {
         $this->entreprise = $entreprise;
+
+        return $this;
     }
 
+    /**
+     * @return bool
+     */
     public function hasEntreprise()
     {
-        return !is_null($this->getEntreprise();
+        return !is_null($this->getEntreprise());
     }
 
 }
