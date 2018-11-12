@@ -17,7 +17,7 @@ class AppMessages
     /**
      *
      */
-    const EXC_ENTREPRISE_OBJECT_UNDEFINED = "";
+    const EXC_ENTREPRISE_OBJECT_UNDEFINED = "Entreprise undéfini pour le calcul d'impôts";
     /**
      *
      */
