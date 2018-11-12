@@ -1,9 +1,7 @@
 <?php
 /**
- * User Seif <ben.s@mipih.fr>
- * Date time: 06/11/2018 19:08
+ * @author Seif
  */
-
 spl_autoload_register(
     function ($class) {
         $locations = [
