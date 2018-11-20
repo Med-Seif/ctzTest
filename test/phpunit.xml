@@ -1,8 +1,16 @@
 <phpunit bootstrap="__DIR__./../../autoload.php">
     <testsuites>
         <testsuite name="ImpotsCalculator">
+
             <directory>Service/</directory>
             <file>ImpotsCalculatorTest.php</file>
+
         </testsuite>
     </testsuites>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory>../src</directory>
+        </whitelist>
+    </filter>
 </phpunit>
+

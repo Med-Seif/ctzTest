@@ -22,15 +22,6 @@ class EntrepriseFactory
     const ENTREPRISE_TYPE_SAS = 'sas';
 
     /**
-     * @var array
-     */
-    const IMPOST_RATES
-        = [
-            self::ENTREPRISE_TYPE_AUTOS => 25,
-            self::ENTREPRISE_TYPE_SAS   => 33,
-        ];
-
-    /**
      * Classe factory qui va se charger de nous instancier l'entreprise adéquate
      *
      * @param string $type

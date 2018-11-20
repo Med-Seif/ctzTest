@@ -18,11 +18,6 @@ interface ImpotsCalculatorInterface
     public function calculate();
 
     /**
-     * @return float
-     */
-    public function getCa();
-
-    /**
      * @param float $ca
      *
      * @return mixed
@@ -35,10 +30,5 @@ interface ImpotsCalculatorInterface
      * @return mixed
      */
     public function setEntreprise(RateInterface $entreprise);
-
-    /**
-     * @return RateInterface
-     */
-    public function getEntreprise();
 
 }
